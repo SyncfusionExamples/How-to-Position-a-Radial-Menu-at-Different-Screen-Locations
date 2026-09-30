@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RadialMenuPositions.MainPage"
+             xmlns:radialMenu="clr-namespace:Syncfusion.Maui.RadialMenu;assembly=Syncfusion.Maui.RadialMenu">
+
+    <Grid
+    x:Name="LayoutRoot"
+    Padding="16"
+    RowDefinitions="Auto,*"
+    RowSpacing="12"
+    SizeChanged="OnLayoutRootSizeChanged">
+
+        <!-- Position Picker -->
+        <Border
+        Grid.Row="0"
+        Padding="12"
+        BackgroundColor="White"
+        Stroke="#E2E8F0"
+        StrokeThickness="1">
+
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="12" />
+            </Border.StrokeShape>
+
+            <Grid
+            ColumnDefinitions="Auto,*"
+            ColumnSpacing="16"
+            VerticalOptions="Center">
+
+                <Label
+                Text="Menu position"
+                FontAttributes="Bold"
+                VerticalOptions="Center"
+                TextColor="#1E293B" />
+
+                <Picker
+                x:Name="PositionPicker"
+                Grid.Column="1"
+                Title="Select position"
+                SelectedIndex="2"
+                SelectedIndexChanged="OnPositionChanged">
+
+                    <Picker.Items>
+                        <x:String>Top Left</x:String>
+                        <x:String>Top Right</x:String>
+                        <x:String>Center</x:String>
+                        <x:String>Bottom Left</x:String>
+                        <x:String>Bottom Right</x:String>
+                    </Picker.Items>
+
+                </Picker>
+            </Grid>
+        </Border>
+
+        <!-- Radial Menu Area -->
+        <Border
+        Grid.Row="1"
+        BackgroundColor="#F8FAFC"
+        Stroke="#E2E8F0"
+        StrokeThickness="1">
+
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="12" />
+            </Border.StrokeShape>
+
+            <Grid x:Name="MenuContainer">
+
+                <radialMenu:SfRadialMenu
+                x:Name="RadialMenu"
+                CenterButtonText="Edit"
+                CenterButtonSize="64">
+
+                    <radialMenu:SfRadialMenu.Items>
+                        <radialMenu:SfRadialMenuItem Text="Cut" />
+                        <radialMenu:SfRadialMenuItem Text="Copy" />
+                        <radialMenu:SfRadialMenuItem Text="Paste" />
+                        <radialMenu:SfRadialMenuItem Text="Delete" />
+                    </radialMenu:SfRadialMenu.Items>
+
+                </radialMenu:SfRadialMenu>
+            </Grid>
+        </Border>
+    </Grid>
+
+</ContentPage>
